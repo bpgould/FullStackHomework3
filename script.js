@@ -1,14 +1,26 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
+generateBtn.addEventListener("click", writePassword);
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+    var p1 = prompt("Please input the desired length of the password (8-128 characters)");
+    var p1Int = parseInt(p1);
+    checkInput(p1Int);
+
+
+    var password = generatePassword();
+    var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
 
 }
-
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+//helper functions
+function checkInput(input){
+    if(input>7&&input<128){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
