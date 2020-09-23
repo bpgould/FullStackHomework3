@@ -21,15 +21,21 @@
 //     checkInput(p1Int);
 // }
 
-// modal stuff
+// modal
+
 // Get the modal
 var modal = document.getElementById("myModal");
-
 // Get the button that opens the modal
 var btn = document.getElementById("myBtn");
-
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
+
+//global variables
+var numQuantInput = 0;
+var numLowerInput = 0;
+var numUpperInput = 0;
+var numNumsInput = 0;
+var numSpecialInput = 0;
 
 // When the user clicks the button, open the modal 
 btn.onclick = function() {
@@ -46,6 +52,8 @@ span.onclick = function() {
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
   if (event.target == modal) {
+    checkInput(); //checkInput and handle errors before closing modal
+
     modal.style.display = "none";
   }
 }
@@ -76,7 +84,7 @@ function checkQuantInput(input){
         alert("The random generator only supports a maximum password size of 128 characters at this time, please enter a smaller value or chain multiple");
     }
 }
-function checkLowerInput(){
+function checkLowerInput(input){
     if(input<0){
         alert("Please input a larger value");
     }
@@ -84,7 +92,7 @@ function checkLowerInput(){
         alert("The random generator only supports a maximum password size of 128 characters at this time, please enter a smaller value or chain multiple");
     }
 }
-function checkUpperInput(){
+function checkUpperInput(input){
     if(input<0){
         alert("Please input a larger value");
     }
@@ -92,7 +100,7 @@ function checkUpperInput(){
         alert("The random generator only supports a maximum password size of 128 characters at this time, please enter a smaller value or chain multiple");
     }
 }
-function checkNumInput(){
+function checkNumInput(input){
     if(input<0){
         alert("Please input a larger value");
     }
@@ -100,7 +108,7 @@ function checkNumInput(){
         alert("The random generator only supports a maximum password size of 128 characters at this time, please enter a smaller value or chain multiple");
     }
 }
-function checkSpecialInput(){
+function checkSpecialInput(input){
     if(input<0){
         alert("Please input a larger value");
     }
