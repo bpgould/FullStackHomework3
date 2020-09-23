@@ -2,24 +2,12 @@
 // var generateBtn = document.querySelector("#generate");
 // generateBtn.addEventListener("click", writePassword);
 
-// // global variables, needed within scope of multiple functions
-// var p1Int = 0;
-// var charTypes = [];
 // function writePassword() {
-//     pForSize();
-//     console.log(p1Int);
-//     pForCharTypes();
 //     var password = generatePassword();
 //     var passwordText = document.querySelector("#password");
 //   passwordText.value = password;
 // }
-// //helper functions
 
-// function pForSize(){
-//     var p1 = prompt("Please input the desired length of the password (8-128 characters)");
-//     p1Int = parseInt(p1);
-//     checkInput(p1Int);
-// }
 
 // modal
 
@@ -36,21 +24,22 @@ var numUpperInput = 0;
 var numNumsInput = 0;
 var numSpecialInput = 0;
 
-// When the user clicks the button, open the modal 
+//When the user clicks the button, open the modal 
 btn.onclick = function(){
   modal.style.display = "block";
 }
 
+//When the user clicks the button, check the input values
 checkBtn.onclick = function(){
     checkInput(); //checkInput and handle errors before closing modal
 }
 
-// When the user clicks on <span> (x), close the modal
+//When the user clicks on <span> (x), close the modal
 span.onclick = function(){
     modal.style.display = "none";
 }
 
-// When the user clicks anywhere outside of the modal, close it
+//When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event){
   if (event.target == modal) {
     modal.style.display = "none";
@@ -76,45 +65,57 @@ function checkInput(){
 //This is done largely for program readability/ ease of use
 //This more easily allows for custom output messages -- I could put them in a String array, I may re-work this later
 function checkQuantInput(input){
+    var error = document.getElementById("error");
     if(input<8){
-        //alert("Please input a larger value");
-        var error = document.getElementById("error")
-        error.textContent = "Please enter a valid number" 
+        error.textContent = "Please enter a larger number of 'Total Length'" 
         error.style.color = "red" 
     }
     if(input>128){
-        alert("The random generator only supports a maximum password size of 128 characters at this time, please enter a smaller value or chain multiple");
+        error.textContent = "Please enter a smaller number of 'Total Length'" 
+        error.style.color = "red" 
     }
 }
 function checkLowerInput(input){
+    var error = document.getElementById("error");
     if(input<0){
-        alert("Please input a larger value");
+        error.textContent = "Please enter a larger number of 'Lowercase'" 
+        error.style.color = "red"
     }
     if(input>128){
-        alert("The random generator only supports a maximum password size of 128 characters at this time, please enter a smaller value or chain multiple");
+        error.textContent = "Please enter a smaller number of 'Lowercase'" 
+        error.style.color = "red"
     }
 }
 function checkUpperInput(input){
+    var error = document.getElementById("error");
     if(input<0){
-        alert("Please input a larger value");
+        error.textContent = "Please enter a larger number of 'Uppercase'" 
+        error.style.color = "red"    
     }
     if(input>128){
-        alert("The random generator only supports a maximum password size of 128 characters at this time, please enter a smaller value or chain multiple");
+        error.textContent = "Please enter a smaller number of 'Uppercase'" 
+        error.style.color = "red"
     }
 }
 function checkNumInput(input){
+    var error = document.getElementById("error");
     if(input<0){
-        alert("Please input a larger value");
+        error.textContent = "Please enter a larger number of 'Numbers'" 
+        error.style.color = "red" 
     }
     if(input>128){
-        alert("The random generator only supports a maximum password size of 128 characters at this time, please enter a smaller value or chain multiple");
+        error.textContent = "Please enter a smaller number of 'Numbers'" 
+        error.style.color = "red"
     }
 }
 function checkSpecialInput(input){
+    var error = document.getElementById("error");
     if(input<0){
-        alert("Please input a larger value");
+        error.textContent = "Please enter a larger number of 'Special Characters'" 
+        error.style.color = "red" 
     }
     if(input>128){
-        alert("The random generator only supports a maximum password size of 128 characters at this time, please enter a smaller value or chain multiple");
+        error.textContent = "Please enter a smaller number of 'Special Characters'" 
+        error.style.color = "red" 
     }
 }
