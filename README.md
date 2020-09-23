@@ -9,4 +9,6 @@ This application allows you to generate random passwords based off of user input
 
 I implemented a modal in order to avoid JS prompts for input.
 
-I utilized Security.Random rather than math.random for a more pseudo-random choice.
+I utilized Security.Random rather than Math.random for a more pseudo-random choice.
+
+I tried to use semantic HTML when I could.

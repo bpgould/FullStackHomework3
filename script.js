@@ -96,12 +96,11 @@ function checkQuantInput(input){
     }
     else if(input>7 && input <129){
          errorList[0]=1;
-         error.textContent = "";
     }
 }
 function checkLowerInput(input){
     var error = document.getElementById("error");
-    if(input<0){
+    if(input<1){
         errorList[1]=0;
         error.textContent = "Please enter a larger number of 'Lowercase'"; 
         error.style.color = "red";
@@ -111,14 +110,13 @@ function checkLowerInput(input){
         error.textContent = "Please enter a smaller number of 'Lowercase'"; 
         error.style.color = "red";
     }
-    else if(input>-1&&input<129){
+    else if(input>0&&input<129){
         errorList[1]=1;
-        error.textContent = "";
     }
 }
 function checkUpperInput(input){
     var error = document.getElementById("error");
-    if(input<0){
+    if(input<1){
         errorList[2]=0;
         error.textContent = "Please enter a larger number of 'Uppercase'"; 
         error.style.color = "red";    
@@ -128,14 +126,13 @@ function checkUpperInput(input){
         error.textContent = "Please enter a smaller number of 'Uppercase'"; 
         error.style.color = "red";
     }
-    else if(input>-1&&input<129){
+    else if(input>0&&input<129){
         errorList[2]=1;
-        error.textContent = "";
     }
 }
 function checkNumInput(input){
     var error = document.getElementById("error");
-    if(input<0){
+    if(input<1){
         errorList[3]=0;
         error.textContent = "Please enter a larger number of 'Numbers'"; 
         error.style.color = "red"; 
@@ -145,14 +142,13 @@ function checkNumInput(input){
         error.textContent = "Please enter a smaller number of 'Numbers'"; 
         error.style.color = "red";
     }
-    else if(input>-1&&input<129){
+    else if(input>0&&input<129){
         errorList[3]=1;
-        error.textContent = "";
     }
 }
 function checkSpecialInput(input){
     var error = document.getElementById("error");
-    if(input<0){
+    if(input<1){
         errorList[4]=0;
         error.textContent = "Please enter a larger number of 'Special Characters'"; 
         error.style.color = "red"; 
@@ -162,9 +158,8 @@ function checkSpecialInput(input){
         error.textContent = "Please enter a smaller number of 'Special Characters'"; 
         error.style.color = "red";
     }
-    else if(input>-1&&input<129){
+    else if(input>0&&input<129){
         errorList[4]=1;
-        error.textContent = "";
     }
 }
 function checkForErrors(){
