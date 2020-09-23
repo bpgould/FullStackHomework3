@@ -1,20 +1,7 @@
-// // Assignment Code
-// var generateBtn = document.querySelector("#generate");
-// generateBtn.addEventListener("click", writePassword);
-
-// function writePassword() {
-//     var password = generatePassword();
-//     var passwordText = document.querySelector("#password");
-//   passwordText.value = password;
-// }
-
-
-// modal
-
-
 var modal = document.getElementById("myModal");// Get the modal
 var btn = document.getElementById("myBtn");// Get the button that opens the modal
 var checkBtn = document.getElementById("checkBtn");//Get the checkValues button
+var postBtm = document.getElementById("postBtn");//Get the button for posting password to main page
 var span = document.getElementsByClassName("close")[0];// Get the <span> element that closes the modal
 
 //global variables needed from user then passed to generator
@@ -28,14 +15,32 @@ var errorList = [];
 
 //When the user clicks the button, open the modal 
 btn.onclick = function(){
-    //clear out values on close
-    //document.getElementById("quantity").value=0;
     modal.style.display = "block";
 }
 
 //When the user clicks the button, check the input values
 checkBtn.onclick = function(){
     checkInput(); //checkInput and handle errors before closing modal
+}
+
+//When the user clicks this button, it checks that there are no errors then prints password to the main page
+postBtn.onclick = function(){
+    var x=0;
+    var error = document.getElementById("error");
+    for(e in errorList){
+        if(errorList[e]===1){
+            x++;
+        }
+    }
+    if(x!==5){
+        error.textContent = "Please check input values before generating."; 
+        error.style.color = "red"; 
+    }
+    else{
+        error.textContent = "Exit the page to see your new password on the main screen."; 
+        error.style.color = "green";
+        writePassword();
+    }
 }
 
 //When the user clicks on <span> (x), close the modal
