@@ -4,7 +4,7 @@ var checkBtn = document.getElementById("checkBtn");//Get the checkValues button
 var postBtm = document.getElementById("postBtn");//Get the button for posting password to main page
 var span = document.getElementsByClassName("close")[0];// Get the <span> element that closes the modal
 
-//global variables needed from user then passed to generator
+//global variables needed from user then passed to generator function once set with cheked values
 var numQuantInput = 0;
 var numLowerInput = 0;
 var numUpperInput = 0;
@@ -39,7 +39,7 @@ postBtn.onclick = function(){
     else{
         error.textContent = "Exit the page to see your new password on the main screen."; 
         error.style.color = "green";
-        writePassword();
+        writePassword(numQuantInput, numLowerInput, numUpperInput, numNumsInput, numSpecialInput);
     }
 }
 
@@ -101,6 +101,7 @@ function checkQuantInput(input){
     }
     else if(input>7 && input <129){
          errorList[0]=1;
+         numQuantInput = document.getElementById("quantity").value;
     }
 }
 function checkLowerInput(input){
@@ -117,6 +118,7 @@ function checkLowerInput(input){
     }
     else if(input>0&&input<129){
         errorList[1]=1;
+        numLowerInput = document.getElementById("lowercase").value;
     }
 }
 function checkUpperInput(input){
@@ -133,6 +135,7 @@ function checkUpperInput(input){
     }
     else if(input>0&&input<129){
         errorList[2]=1;
+        numUpperInput = document.getElementById("uppercase").value;
     }
 }
 function checkNumInput(input){
@@ -149,6 +152,7 @@ function checkNumInput(input){
     }
     else if(input>0&&input<129){
         errorList[3]=1;
+        numNumsInput = document.getElementById("numbers").value;
     }
 }
 function checkSpecialInput(input){
@@ -165,6 +169,7 @@ function checkSpecialInput(input){
     }
     else if(input>0&&input<129){
         errorList[4]=1;
+        numSpecialInput = document.getElementById("specialcharacters").value;
     }
 }
 function checkForErrors(){
@@ -179,4 +184,13 @@ function checkForErrors(){
         error.textContent = "No errors found."; 
         error.style.color = "green"; 
     }
+}
+function writePassword(numQ, numL, numU, numN, numS){
+    giveRandom();
+}
+//more cryptographically sound than Math.random()
+function giveRandom(){
+    var randomNum = new Uint8Array(1);
+    window.crypto.getRandomValues(randomNum);
+    return randomNum;
 }
